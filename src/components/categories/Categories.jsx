@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import Items from "../items/Items";
 import CategoryModal from "./CategoryModal";
+import Loading from "../Loading";
 
 export default function Categories({ categories }) {
   if (categories) {
@@ -13,7 +14,7 @@ export default function Categories({ categories }) {
       </div>
     );
   } else {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 }
 
