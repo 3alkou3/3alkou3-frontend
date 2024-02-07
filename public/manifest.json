@@ -1,0 +1,15 @@
+{
+  "short_name": "3al kou3",
+  "name": "3al kou3 Coffee shop",
+  "icons": [
+    {
+      "src": "Coffee.svg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1c0407",
+  "background_color": "#1c0407"
+}

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+input,
+select {
+  @apply rounded-xl border px-4 py-2;
+}
+
+.category-title {
+  font-family: anton, serif;
+}
+
+.item {
+  font-family: arial;
+}
