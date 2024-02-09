@@ -47,8 +47,6 @@ const AddCategorySection = () => {
     formData.append("order", categoryData.order);
     formData.append("categoryImage", categoryData.categoryImage);
 
-    console.log(categoryData.categoryImage);
-
     try {
       // Send the form data to the server
       setIsFetching(true);
@@ -59,7 +57,6 @@ const AddCategorySection = () => {
       setIsFetching(false);
 
       if (response.ok) {
-        console.log("Category added successfully");
         const category = await response.json();
         addCategory(category);
         setCategoryData(prevData => ({
