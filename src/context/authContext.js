@@ -9,21 +9,24 @@ export const AuthProvider = ({ children }) => {
   const [checkingForAuth, setCheckingForAuth] = useState(true);
 
   useEffect(() => {
-    fetch(backend + "/api/auth/checkToken", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        token: window.localStorage.getItem("token"),
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        setCheckingForAuth(false);
-        setAuthenticated(true);
-      } else if (res.status !== 401 && !res.ok) {
-        console.error("Failed to check token");
-        setCheckingForAuth(false);
-      }
-    });
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      fetch(backend + "/api/auth/checkToken", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token: token,
+        }),
+      }).then((res) => {
+        if (res.ok) {
+          setCheckingForAuth(false);
+          setAuthenticated(true);
+        } else if (res.status !== 401 && !res.ok) {
+          console.error("Failed to check token");
+          setCheckingForAuth(false);
+        }
+      });
+    }
   }, []);
 
   const login = async (username, password) => {
