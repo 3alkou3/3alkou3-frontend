@@ -50,7 +50,11 @@ function Category({ category }) {
     <div className="flex flex-col p-4 min-w-[200px] max-w-[400px] mx-auto">
       <div className="mb-2 ml-7 w-fit flex items-end gap-4">
         <h2 className="text-2xl uppercase category-title">{category.name}</h2>
-        <img className="h-[50px] w-[50px]" src={category.icon} alt="" />
+        {category.icon ? (
+          <img className="h-[50px] w-[50px]" src={category.icon} alt="" />
+        ) : (
+          ""
+        )}
       </div>
       <Items items={category.items} type={category.type} />
     </div>
